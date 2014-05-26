@@ -3,18 +3,23 @@ PImage bg;
 String[] introimgs = {"kds.jpg", "kds2.jpg", "kds3.jpg"};
 String [] introtxt = {"text1", "text2", "text3"};
 int intronum = 0;
+boolean drawintro;
 boolean g1 = false;
 boolean g2 = false;
 boolean g3 = false;
 
-setup{
-  size(1000, 1000);
-  f = createfont("Cambria",20,true);
-  bg = loadimage(introimgs[intronum]);
-  intro();
+void setup(){
+  size(1000, 600);
+  f = createFont("Cambria",20,true);
+  bg = loadImage(introimgs[intronum]);
+  drawintro = true;
 }
 
-draw{
+void draw(){
+  background(0);
+  //while(drawintro){
+  intro();
+  //}
   while(g1){
     playG1();
   }
@@ -26,28 +31,33 @@ draw{
   }
 }
 
-intro{
+void intro(){
+  //background(0);
+  bg = loadImage(introimgs[intronum]);
+  image(bg,0,0);
+  textFont(f,26);        
+  textAlign(LEFT);
+  text(introtxt[intronum],100,100);
  //draw beginning story thing 
 }
 
-playG1{
+void playG1(){
   //code for Jiji's jumping quest
 }
 
-playG2{
+void playG2(){
  // code for Kiki's flying game
 }
 
-playG3{
+void playG3(){
  //code for Tombo's game
 }
 
-}
 
-void mousePressed{MouseEvent e){
- if(intronum >= introimgs.length){
-  intronum = 0;
- }
-bg = loadImage*intromgs[intronum]);
-intronum ++;
+
+void mousePressed(MouseEvent e){
+  intronum++;
+  if(intronum >= introimgs.length){
+    intronum = 0;
+   }
 }
