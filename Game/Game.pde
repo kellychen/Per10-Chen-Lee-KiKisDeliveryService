@@ -19,15 +19,17 @@ void setup(){
 void draw(){
   background(0);
   //while(drawintro){
-  intro();
+  if(drawintro){
+    intro();
+  }
   //}
-  if(g1){
+  else if(g1){
     playG1();
   }
-  else(g2){
+  else if(g2){
    playG2(); 
   }
-  else(g3){
+  else if(g3){
     playG3();
   }
 }
@@ -60,6 +62,7 @@ void mousePressed(MouseEvent e){
   intronum++;
   if(intronum >= introimgs.length){
     intronum = 0;
+    drawintro = false;
    }
 }
 /* Key Press stuff for jumping of flying put within draw() method
