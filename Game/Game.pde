@@ -12,6 +12,7 @@ void setup(){
   size(1000, 600);
   f = createFont("Cambria",20,true);
   bg = loadImage(introimgs[intronum]);
+  frameRate(70); //anything above 60 should be fine
   drawintro = true;
 }
 
@@ -20,13 +21,13 @@ void draw(){
   //while(drawintro){
   intro();
   //}
-  while(g1){
+  if(g1){
     playG1();
   }
-  while(g2){
+  else(g2){
    playG2(); 
   }
-  while(g3){
+  else(g3){
     playG3();
   }
 }
@@ -61,3 +62,17 @@ void mousePressed(MouseEvent e){
     intronum = 0;
    }
 }
+/* Key Press stuff for jumping of flying put within draw() method
+if(keyPressed){
+ if(key == 'w' ++ key = 'W'){
+  //move up
+ } else if(key == 'a' || key == 'A'){
+  //move left
+ } else if(key == 's' || key == 'S'){
+   //move down
+ } else if(key == 'd' || key == 'D'){
+  //move right 
+ }
+ //we could probably use WASD for flying and arrow keys for jumping or something if we ever need to do them at the same time
+}
+*/
