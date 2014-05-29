@@ -70,14 +70,17 @@ void intro(){
 
 void playG1(){
   //code for Jiji's jumping quest
+
 }
 
 void playG2(){
  // code for Kiki's flying game
+
 }
 
 void playG3(){
  //code for Tombo's game
+
 }
 
 
