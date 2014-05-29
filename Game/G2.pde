@@ -1,8 +1,8 @@
-boolean go;
+boolean go2;
 
-G2(){
-  go = false;
-}
+//G2(){
+//  go = false;
+//}
 
 void g2(){
   
