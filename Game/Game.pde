@@ -12,6 +12,9 @@ boolean g3 = false;
 
 int rectfill;
 int textfill;
+int fade;
+int tempmillis;
+boolean startFade;
 
 void setup(){
   size(1000, 600);
@@ -21,6 +24,9 @@ void setup(){
   drawintro = true;
   rectfill = 160;
   textfill = 25;
+  fade = 5;
+  startFade = false;
+  tempmillis = millis();
 }
 
 void draw(){
@@ -42,29 +48,42 @@ void draw(){
 }
 
 void intro(){
+  if(startFade && millis() - tempmillis > 500){
+    rectfill = rectfill + 10;
+    textfill = textfill + 25;
+    //if(millis() - tempmillis > 500){
+      fade--;
+      tempmillis = millis();
+    //}
+  }
+  if(fade <= 0){
+     add();
+  }
   //background(0);
-  bg = loadImage(introimgs[intronum]);
-  image(bg,0,0);
-  textFont(f,26);        
-  textAlign(LEFT);
+  else{
+    bg = loadImage(introimgs[intronum]);
+    image(bg,0,0);
+    textFont(f,26);        
+    textAlign(LEFT);
   //stroke(0);
   //strokeWeight(5);
-  fill(rectfill);
-  noStroke();
-  if(intronum == 0){
-    rect(95,430,620,25);
-    rect(95,470,710,25);
-    rect(95,510,608,25);
-  }
-  if(intronum == 1){
-    rect(95,430,695,25);
-    rect(95,470,715,25);
-    rect(95,510,685,25);
-    rect(95,550,325,25);
-  }  
+    fill(rectfill);
+    noStroke();
+    if(intronum == 0){
+      rect(95,430,620,25);
+      rect(95,470,710,25);
+      rect(95,510,608,25);
+    }
+    if(intronum == 1){
+      rect(95,430,695,25);
+      rect(95,470,715,25);
+      rect(95,510,685,25);
+      rect(95,550,325,25);
+    }  
   fill(textfill);
   stroke(0);
   text(introtxt[intronum],100,450);
+  }
  //draw beginning story thing 
 }
 
@@ -86,23 +105,19 @@ void playG3(){
 
 
 void mousePressed(MouseEvent e){
-  int fade = 5;
-  int tempmillis = millis();
-  while(fade > 0){
-    rectfill = rectfill + 50;
-    textfill = textfill + 50;
-    if(millis() - tempmillis > 500){
-      fade--;
-      tempmillis = millis();
-    }
-  }
+  startFade = true;
+}
+
+void add(){
   intronum++;
+  fade = 5;
+  startFade = false;
   rectfill = 160;
   textfill = 25;
   if(intronum >= introimgs.length){
     intronum = 0;
     drawintro = false;
-   }
+  }
 }
 /* Key Press stuff for jumping of flying put within draw() method
 if(keyPressed){

@@ -10,7 +10,7 @@ float rot;
 void g1(){
 }
   //sprite testing
-  void setup(){
+/*  void setup(){
     jiji = loadImage("Jiji.jpg");
     x = 0.0;
     y = width/2.0;
@@ -28,4 +28,5 @@ void g1(){
       x = -Jiji.width;
     }
   }
+  */
 
