@@ -1,5 +1,6 @@
 PFont f;
 PImage bg;
+PImage welcome;
 String[] introimgs = {"Kiki_flying.jpg", "kds2.jpg", "kds3.jpg"};
 String [] introtxt = {"Once upon a time, there was a young witch named Kiki.\nSince she has turned 13 this year, as per tradition, she must live \naway from home for a year to develop her witch skills. ",
                       "Upon settling in her new town, Kiki meets a nice baker named \nOsono who agrees to let Kiki stay with her on the condition that \nshe helps around the bakery and allows her to make her own \nmoney by making deliveries.", 
@@ -15,27 +16,29 @@ int textfill;
 int fade;
 int tempmillis;
 boolean startFade;
+boolean startWelcome;
 
 void setup(){
   size(1000, 600);
   f = createFont("Cambria",20,true);
   bg = loadImage(introimgs[intronum]);
   frameRate(70); //anything above 60 should be fine
-  drawintro = true;
-  rectfill = 160;
+    rectfill = 160;
   textfill = 25;
   fade = 5;
   startFade = false;
   tempmillis = millis();
+  startWelcome = true;
+  //welcome();
 }
 
 void draw(){
-  background(0);
-  //while(drawintro){
+  if(startWelcome){
+    welcome();
+  }
   if(drawintro){
     intro();
   }
-  //}
   else if(g1){
     playG1();
   }
@@ -45,6 +48,16 @@ void draw(){
   else if(g3){
     playG3();
   }
+}
+
+void welcome(){
+    welcome = loadImage("welcome.jpg");
+    image(welcome, 0, 0);
+    textFont(f,26);        
+    textAlign(LEFT);
+    fill(255);
+    text("Click to begin witchy adventures", 500, 500);
+  //"Click here to begin"
 }
 
 void intro(){
@@ -104,8 +117,14 @@ void playG3(){
 
 
 
-void mousePressed(MouseEvent e){
-  startFade = true;
+void mousePressed(){
+  if(startWelcome){
+   startWelcome = false; 
+   drawintro = true;
+  }
+  else if(drawintro){
+    startFade = true;
+  }
 }
 
 void add(){
