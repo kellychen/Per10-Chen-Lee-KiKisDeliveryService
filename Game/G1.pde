@@ -1,32 +1,35 @@
-boolean go1;
-PImage Jiji;
-float x,y;
-float rot;
+public class G1 {
 
-//G1(){
-//  go = false;
-//}
+  boolean go1;
+  PImage Jiji;
+  float x, y;
+  float rot;
 
-void g1(){
-}
+  //G1(){
+  //  go = false;
+  //}
+
+  void g1() {
+  }
   //sprite testing
-/*  void setup(){
-    jiji = loadImage("Jiji.jpg");
+  void setup() {
     x = 0.0;
     y = width/2.0;
     rot = 0.0;
   }
-  
-  void draw(){
-    background(255);
-    translate(x.y);
+
+  void draw() {
+    background(150);
+    Jiji = loadImage("Jiji.jpg");
+    image(Jiji, 0, 0);
+    translate(x, y);
     rotate(rot);
-    
+
     x+= 1.0;
     rot += 0.02;
-    if(x > width + Jiji.width){
-      x = -Jiji.width;
+    if (x > width) {
+      x = -width;
     }
   }
-  */
+}
 
