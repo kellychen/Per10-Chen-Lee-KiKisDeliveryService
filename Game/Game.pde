@@ -2,12 +2,12 @@ PFont f;
 PImage bg;
 PImage welcome;
 String[] introimgs = {
-  "Kiki_flying.jpg", "kds2.jpg",// "kds3.jpg"
+  "Kiki_flying.jpg", "bakery.jpg", "osono.jpg"
 };
 String [] introtxt = {
   "Once upon a time, there was a young witch named Kiki.\nSince she has turned 13 this year, as per tradition, she must live \naway from home for a year to develop her witch skills. ", 
   "Upon settling in her new town, Kiki meets a nice baker named \nOsono who agrees to let Kiki stay with her on the condition that \nshe helps around the bakery and allows her to make her own \nmoney by making deliveries.", 
-//  "text3"
+  "Osono: Jiji I need some milk. Could you go get some for me please?"
 };
 int intronum = 0;
 boolean drawintro;
@@ -21,6 +21,7 @@ int fade;
 int tempmillis;
 boolean startFade;
 boolean startWelcome;
+boolean toMilk;
 
 void setup() {
   size(1000, 600);
@@ -37,10 +38,10 @@ void setup() {
 
 void draw() {
   //background(0);
-  playG1();
-  //if (startWelcome) {
-    //welcome();
-  //}
+  //playG1();
+  if (startWelcome) {
+    welcome();
+  }
   if (drawintro) {
     intro();
   } else if (g1) {
@@ -84,24 +85,40 @@ void intro() {
     //strokeWeight(5);
     fill(rectfill);
     noStroke();
-    if (intronum == 0) {
-      rect(95, 430, 620, 25);
-      rect(95, 470, 710, 25);
-      rect(95, 510, 608, 25);
+    if (intronum != 2) {
+      if (intronum == 0) {
+        rect(95, 430, 620, 25);
+        rect(95, 470, 710, 25);
+        rect(95, 510, 608, 25);
+      }
+      if (intronum == 1) {
+        rect(95, 430, 695, 25);
+        rect(95, 470, 715, 25);
+        rect(95, 510, 685, 25);
+        rect(95, 550, 325, 25);
+      }  
+      fill(textfill);
+      stroke(0);
+      text(introtxt[intronum], 100, 450);
     }
-    if (intronum == 1) {
-      rect(95, 430, 695, 25);
-      rect(95, 470, 715, 25);
-      rect(95, 510, 685, 25);
-      rect(95, 550, 325, 25);
-    }  
-    fill(textfill);
-    stroke(0);
-    text(introtxt[intronum], 100, 450);
+    else{
+      rect(95,530,745,25);
+      rect(798,300,75,25);
+      fill(textfill);
+      stroke(0);
+      text(introtxt[intronum],100,550);
+      text("meow",800,320);
+    }
   }
   //draw beginning story thing
 }
 
+void toMilk() {
+  bg = loadImage("JijiToMilk.jpg");
+  image(bg, 0, 0);
+  textFont(f, 26);        
+  textAlign(LEFT);
+}
 void playG1() {
   G1 g = new G1();
   g.draw();
@@ -136,6 +153,7 @@ void add() {
   if (intronum >= introimgs.length) {
     intronum = 0;
     drawintro = false;
+    toMilk = true;
   }
 }
 /* Key Press stuff for jumping of flying put within draw() method
