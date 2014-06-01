@@ -1,6 +1,4 @@
 public class G1 {
-
-  boolean go1;
   PImage Jiji;
   float x, y;
   float rot;
