@@ -26,23 +26,23 @@ public class Kiki {
   }
 
   void moveUp() {
-    if (ycor < 600) {
-      ycor = ycor - 100;
+    if (ycor < 600 && ycor > 0) {
+      ycor = ycor - 25;
     }
   }
   void moveDown() {
-    if (ycor > 0) {
-      ycor = ycor + 100;
+    if (ycor >= 0 && ycor < 500) {
+      ycor = ycor + 25;
     }
   }
   void moveRight() {
-    if (xcor < 1000) {
-      xcor = xcor + 100;
+    if (xcor < 900) {
+      xcor = xcor + 25;
     }
   }
   void moveLeft() {
     if (xcor > 0) {
-      xcor = xcor - 100;
+      xcor = xcor - 25;
     }
   }
 }
