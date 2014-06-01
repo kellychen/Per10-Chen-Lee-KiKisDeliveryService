@@ -1,9 +1,5 @@
-boolean go2;
-
-//G2(){
-//  go = false;
-//}
-
-void g2(){
+public class g2{
+  boolean go2;
+  
   
 }
