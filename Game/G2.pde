@@ -1,5 +1,5 @@
-public class g2 {
-  Kiki k;
+public class G2 {
+  Kiki k = new Kiki();
   PImage bg;
   int bgxcor;
 
@@ -7,22 +7,14 @@ public class g2 {
     size(1000, 600);
     bg = loadImage("skybg.jpg");
     frameRate(70); //anything above 60 should be fine
+    k.setup();
   }
 
   void draw() {
-    bgxcor++;
+    bgxcor--;
     image(bg, bgxcor % 1000, 0);
-    if (keyPressed) {
-      if (key == 'w' || key == 'W') {
-        k.moveUp();
-      } else if (key == 'a' || key == 'A') {
-        k.moveLeft();
-      } else if (key == 's' || key == 'S') {
-        k.moveDown();
-      } else if (key == 'd' || key == 'D') {
-        k.moveRight();
-      }
-    }
+    image(bg, 1000+(bgxcor % 1000), 0);
+    k.draw();
   }
 }
 

@@ -12,7 +12,7 @@ String [] introtxt = {
 int intronum = 0;
 boolean drawintro;
 boolean g1 = false;
-boolean g2 = false;
+//boolean g2 = false;
 boolean g3 = false;
 
 int rectfill;
@@ -22,6 +22,7 @@ int tempmillis;
 boolean startFade;
 boolean startWelcome;
 boolean toMilk;
+G2 g2;
 
 void setup() {
   size(1000, 600);
@@ -34,12 +35,15 @@ void setup() {
   startFade = false;
   tempmillis = millis();
   startWelcome = true;
+  g2 = new G2();
+  g2.setup();
 }
 
 void draw() {
   //background(0);
   //playG1();
-  if (startWelcome) {
+  playG2();
+ /* if (startWelcome) {
     welcome();
   }
   if (drawintro) {
@@ -51,6 +55,7 @@ void draw() {
   } else if (g3) {
     playG3();
   }
+  */
 }
 
 void welcome() {
@@ -126,6 +131,7 @@ void playG1() {
 }
 
 void playG2() {
+  g2.draw();
   // code for Kiki's flying game
 }
 
