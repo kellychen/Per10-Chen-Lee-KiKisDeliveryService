@@ -6,7 +6,7 @@ public class Kiki {
 //PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)
 
   void setup() {
-    kiki = loadImage("flyingkiki.jpg");
+    kiki = loadImage("flyingkiki.png");
     health = 3;
   }
 
