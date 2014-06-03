@@ -17,6 +17,8 @@ public class G2 {
     crownum = 2;
     k.setup();
     c.setup();
+    c2.setup();
+    c3.setup();
   }
 
   void draw() {
@@ -24,6 +26,9 @@ public class G2 {
     image(bg, bgxcor % 1000, 0);
     image(bg, 1000+(bgxcor % 1000), 0);
     k.draw();
+    c.draw();
+    c2.draw();
+    c3.draw();
   }
 }
 
