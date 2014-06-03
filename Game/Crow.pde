@@ -7,7 +7,7 @@ public class Crow{
   void setup(){
     crow = loadImage("crow.png");
     xcor = 1000;
-    ycor = (int)(500*Math.random());
+    ycor = (int)(5*Math.random()) * 100;
   }
   
   void draw(){
@@ -15,10 +15,12 @@ public class Crow{
     xcor = xcor - 3;
   }
   
-  void checkHit(){
-    if (xcor == Kiki.xcor && ycor = Kiki.ycor)
+  public int getxcor(){
+   return xcor; 
   }
-  
+  public int getycor(){
+    return ycor;
+  }
 }
 
 

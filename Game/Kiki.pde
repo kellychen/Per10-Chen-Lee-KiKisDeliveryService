@@ -3,7 +3,7 @@ public class Kiki {
   int xcor;
   int ycor;
   PImage kiki;
-//PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)
+  //PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)
 
   void setup() {
     kiki = loadImage("flyingkiki.png");
@@ -44,6 +44,21 @@ public class Kiki {
     if (xcor > 0) {
       xcor = xcor - 25;
     }
+  }
+  public int getxcor() {
+    return xcor;
+  }
+  public int getycor() {
+    return ycor;
+  }
+  public int getHealth() {
+    return health;
+  }
+  public void decHealth() {
+    health--;
+  }
+  public void stop() {
+    noLoop();  
   }
 }
 

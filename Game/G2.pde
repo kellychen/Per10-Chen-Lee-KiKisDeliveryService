@@ -29,6 +29,19 @@ public class G2 {
     c.draw();
     c2.draw();
     c3.draw();
+    checkHit(c);
+    checkHit(c2);
+    checkHit(c3);
   }
+
+  void checkHit(Crow c) {
+    if (Math.abs(c.getxcor()- k.getxcor()) < 10 && Math.abs(c.getycor() - k.getycor()) < 10) {
+      if (k.getHealth() == 1) {
+        k.stop();
+      } else {
+        k.decHealth();
+      }
+    }
+  }  
 }
 
