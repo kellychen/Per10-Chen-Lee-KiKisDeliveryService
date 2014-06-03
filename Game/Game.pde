@@ -11,7 +11,7 @@ String [] introtxt = {
 };
 int intronum = 0;
 boolean drawintro;
-boolean g1 = false;
+//boolean g1 = false;
 //boolean g2 = false;
 boolean g3 = false;
 
@@ -22,6 +22,7 @@ int tempmillis;
 boolean startFade;
 boolean startWelcome;
 boolean toMilk;
+G1 g1;
 G2 g2;
 
 void setup() {
@@ -37,12 +38,14 @@ void setup() {
   startWelcome = true;
   g2 = new G2();
   g2.setup();
+  g1 = new G1();
+  g1.setup();
 }
 
 void draw() {
   //background(0);
-  //playG1();
-  playG2();
+  playG1();
+  //playG2();
  /* if (startWelcome) {
     welcome();
   }
@@ -125,8 +128,7 @@ void toMilk() {
   textAlign(LEFT);
 }
 void playG1() {
-  G1 g = new G1();
-  g.draw();
+  g1.draw();
   //code for Jiji's jumping quest
 }
 

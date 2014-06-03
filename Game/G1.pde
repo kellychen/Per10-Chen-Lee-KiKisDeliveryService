@@ -1,7 +1,7 @@
 public class G1 {
-  PImage Jiji;
-  float x, y;
-  float rot;
+  PImage bg;
+  int bgxcor;
+  Jiji j;
 
   //G1(){
   //  go = false;
@@ -11,23 +11,24 @@ public class G1 {
   }
   //sprite testing
   void setup() {
-    x = 0.0;
-    y = width/2.0;
-    rot = 0.0;
+    j = new Jiji();
+    j.setup();
+    bg = loadImage("road.jpg");
   }
 
   void draw() {
     background(150);
-    Jiji = loadImage("Jiji.jpg");
-    image(Jiji, 0, 0);
-    translate(x, y);
-    rotate(rot);
+    image(bg, bgxcor % 1000, 0);
+    image(bg, 1000+(bgxcor % 1000), 0);
+    j.draw();
+  }
 
-    x+= 1.0;
-    rot += 0.02;
-    if (x > width) {
-      x = -width;
-    }
+  void scrollright() {
+    bgxcor = bgxcor - 25;
+  }
+  
+  void scrollleft(){
+    bgxcor = bgxcor + 25;
   }
 }
 
