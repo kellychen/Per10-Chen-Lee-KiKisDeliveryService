@@ -2,9 +2,9 @@ public class Kiki {
   int health;
   int xcor;
   int ycor;
+  int count;
   PImage kiki;
   //PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)\
-  //FIX CHARACTER RATIO MAKE HER LONGER HORIZONTALLY
 
   void setup() {
     kiki = loadImage("flyingkiki.png");
@@ -62,7 +62,7 @@ public class Kiki {
     health--;
   }
   public void stop() {
-    noLoop();
+    //noLoop();
   }
 }
 

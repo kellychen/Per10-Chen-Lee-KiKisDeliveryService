@@ -1,5 +1,6 @@
 public class G1 {
   int bgycor;
+  PImage bg;
   Jiji j;
 
   void setup() {
@@ -10,6 +11,7 @@ public class G1 {
   }
 
   void draw() {
+    background(0);
     image(bg, 0, bgycor % 600);
     image(bg, 0, 600+(bgycor % 600));
     j.draw();

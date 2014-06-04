@@ -31,7 +31,7 @@ void setup() {
   size(1000, 600);
   f = createFont("Cambria", 20, true);
   bg = loadImage(introimgs[intronum]);
-  frameRate(70); //anything above 60 should be fine
+  frameRate(60); //anything above 60 should be fine
   rectfill = 160;
   textfill = 25;
   fade = 5;
@@ -40,27 +40,25 @@ void setup() {
   startWelcome = true;
   tg1 = new ToG1();
   tg1.setup();
-  g2 = new G2();
-  g2.setup();
   g1 = new G1();
   g1.setup();
+  g2 = new G2();
+  g2.setup();
 }
 
 void draw() {
   background(0);
-  playG1();
-  //playG2();
+  //playG1();
+  playG2();
   /*
   if (startWelcome) {
     welcome();
   }
   if (drawintro) {
     intro();
-  } 
-  else if (togame1){
+  } else if (togame1) {
     playpreG1();
-  }
-  else if (game1) {
+  } else if (game1) {
     playG1();
   } else if (game2) {
     playG2();
@@ -117,14 +115,13 @@ void intro() {
       fill(textfill);
       stroke(0);
       text(introtxt[intronum], 100, 450);
-    }
-    else{
-      rect(95,530,745,25);
-      rect(798,300,75,25);
+    } else {
+      rect(95, 530, 745, 25);
+      rect(798, 300, 75, 25);
       fill(textfill);
       stroke(0);
-      text(introtxt[intronum],100,550);
-      text("meow",800,320);
+      text(introtxt[intronum], 100, 550);
+      text("meow", 800, 320);
     }
   }
   //draw beginning story thing
@@ -132,14 +129,14 @@ void intro() {
 
 /*
 void toMilk() {
-  bg = loadImage("JijiToMilk.jpg");
-  image(bg, 0, 0);
-  textFont(f, 26);        
-  textAlign(LEFT);
-}
-*/
+ bg = loadImage("JijiToMilk.jpg");
+ image(bg, 0, 0);
+ textFont(f, 26);        
+ textAlign(LEFT);
+ }
+ */
 
-void playpreG1(){
+void playpreG1() {
   tg1.draw();
 }
 

@@ -8,6 +8,7 @@ public class G2 {
   PImage bg;
   int bgxcor;
   int crownum;
+  int wavecount;
   boolean win;
   boolean wave1, wave2, wave3, wave4, wave5;
   boolean flashing;
@@ -27,16 +28,19 @@ public class G2 {
   }
 
   void draw() {
+    wavecount++;
     bgxcor--;
     image(bg, bgxcor % 1000, 0);
     image(bg, 1000+(bgxcor % 1000), 0);
-    k.draw();
+    if (!flashing) {
+      k.draw();
+    }
     wave1();
     wave2();
     wave3();
     wave4();
     wave5();
-    flash(k);
+    flash();
     checkHit(c);
     checkHit(c2);
     checkHit(c3);
@@ -52,19 +56,21 @@ public class G2 {
         } else {
           k.decHealth();
         }
+        flashing  = true;
       }
     }
   }
 
-  void flash(Kiki k) {
-    flashing = true;
-    //flashing animation
-    flashing = false;
-  }
+void flash(){
+  flashing = false;
+}
 
   void wave1() {
     if (wave1) {
       c.draw();
+      if(wavecount >= 600){
+        wave2 = true;
+      }
     }
   }
   void wave2() {
@@ -86,5 +92,7 @@ public class G2 {
     if (wave5) {
       c5.draw();
     }
-  }  
+  }
+
 }
+
