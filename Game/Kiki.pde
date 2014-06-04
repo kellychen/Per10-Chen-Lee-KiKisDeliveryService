@@ -3,7 +3,8 @@ public class Kiki {
   int xcor;
   int ycor;
   PImage kiki;
-  //PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)
+  //PROBLEM: Draw happens too quickly so when you press any key it happens like way more than one time so kiki goes flying (no pun intended)\
+  //FIX CHARACTER RATIO MAKE HER LONGER HORIZONTALLY
 
   void setup() {
     kiki = loadImage("flyingkiki.png");
@@ -13,14 +14,17 @@ public class Kiki {
   void draw() {
     image(kiki, xcor, ycor);
     if (keyPressed) {
-      if (key == 'w' || key == 'W') {
-        moveUp();
-      } else if (key == 'a' || key == 'A') {
-        moveLeft();
-      } else if (key == 's' || key == 'S') {
-        moveDown();
-      } else if (key == 'd' || key == 'D') {
-        moveRight();
+      if (millis() - tempmillis > 15) {
+        if (key == 'w' || key == 'W') {
+          moveUp();
+        } else if (key == 'a' || key == 'A') {
+          moveLeft();
+        } else if (key == 's' || key == 'S') {
+          moveDown();
+        } else if (key == 'd' || key == 'D') {
+          moveRight();
+        }
+        tempmillis = millis();
       }
     }
   }
@@ -58,7 +62,7 @@ public class Kiki {
     health--;
   }
   public void stop() {
-    noLoop();  
+    noLoop();
   }
 }
 

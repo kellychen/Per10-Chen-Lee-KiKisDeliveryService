@@ -31,7 +31,7 @@ public class Jiji {
   }
 
   void jump() {
-    if (millis() - tempmillis > 15) {
+    if (millis() - tempmillis > 25) {
       if (ycor < 600 && ycor > 0) {
         if (up && jumpHeight < 150) {
           ycor = ycor - 25;
