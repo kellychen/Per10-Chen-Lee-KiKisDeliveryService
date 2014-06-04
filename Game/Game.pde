@@ -11,9 +11,10 @@ String [] introtxt = {
 };
 int intronum = 0;
 boolean drawintro;
-//boolean g1 = false;
-//boolean g2 = false;
-boolean g3 = false;
+boolean togame1 = false;
+boolean game1 = false;
+boolean game2 = false;
+boolean game3 = false;
 
 int rectfill;
 int textfill;
@@ -22,6 +23,7 @@ int tempmillis;
 boolean startFade;
 boolean startWelcome;
 boolean toMilk;
+ToG1 tg1;
 G1 g1;
 G2 g2;
 
@@ -36,6 +38,8 @@ void setup() {
   startFade = false;
   tempmillis = millis();
   startWelcome = true;
+  tg1 = new ToG1();
+  tg1.setup();
   g2 = new G2();
   g2.setup();
   g1 = new G1();
@@ -43,19 +47,24 @@ void setup() {
 }
 
 void draw() {
-  //background(0);
-  //playG1();
-  playG2();
- /* if (startWelcome) {
+  background(0);
+  playG1();
+  //playG2();
+  /*
+  if (startWelcome) {
     welcome();
   }
   if (drawintro) {
     intro();
-  } else if (g1) {
+  } 
+  else if (togame1){
+    playpreG1();
+  }
+  else if (game1) {
     playG1();
-  } else if (g2) {
+  } else if (game2) {
     playG2();
-  } else if (g3) {
+  } else if (game3) {
     playG3();
   }
   */
@@ -121,12 +130,19 @@ void intro() {
   //draw beginning story thing
 }
 
+/*
 void toMilk() {
   bg = loadImage("JijiToMilk.jpg");
   image(bg, 0, 0);
   textFont(f, 26);        
   textAlign(LEFT);
 }
+*/
+
+void playpreG1(){
+  tg1.draw();
+}
+
 void playG1() {
   g1.draw();
   //code for Jiji's jumping quest
@@ -161,7 +177,8 @@ void add() {
   if (intronum >= introimgs.length) {
     intronum = 0;
     drawintro = false;
-    toMilk = true;
+    togame1 = true;
+    //toMilk = true;
   }
 }
 /* Key Press stuff for jumping of flying put within draw() method

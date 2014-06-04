@@ -1,34 +1,22 @@
 public class G1 {
-  PImage bg;
-  int bgxcor;
+  int bgycor;
   Jiji j;
 
-  //G1(){
-  //  go = false;
-  //}
-
-  void g1() {
-  }
-  //sprite testing
   void setup() {
+    bg = loadImage("wall.jpg");
     j = new Jiji();
     j.setup();
-    bg = loadImage("road.jpg");
+    j.setycor(360);
   }
 
   void draw() {
-    background(150);
-    image(bg, bgxcor % 1000, 0);
-    image(bg, 1000+(bgxcor % 1000), 0);
+    image(bg, 0, bgycor % 600);
+    image(bg, 0, 600+(bgycor % 600));
     j.draw();
   }
-
-  void scrollright() {
-    bgxcor = bgxcor - 25;
-  }
   
-  void scrollleft(){
-    bgxcor = bgxcor + 25;
+  void scrollup(){
+    bgycor = bgycor + 25;
   }
 }
 

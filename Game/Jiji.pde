@@ -13,6 +13,10 @@ public class Jiji {
     ycor = 450;
   }
 
+  void setycor(int ycor) {
+    this.ycor = ycor;
+  }
+
   void draw() {
     image(jiji, xcor, ycor);
     jump();
@@ -32,20 +36,20 @@ public class Jiji {
 
   void jump() {
     if (millis() - tempmillis > 25) {
+      if (ycor <= 350) {
+        g1.scrollup();
+      }
       if (ycor < 600 && ycor > 0) {
         if (up && jumpHeight < 150) {
           ycor = ycor - 25;
           jumpHeight = jumpHeight + 25;
-        } 
-        else if (up && jumpHeight >= 150) {
+        } else if (up && jumpHeight >= 150) {
           up = false;
           down = true;
-        } 
-        else if (down && jumpHeight > 0) {
+        } else if (down && jumpHeight > 0) {
           ycor = ycor + 25;
           jumpHeight = jumpHeight - 25;
-        } 
-        else if (down && jumpHeight <= 0) {
+        } else if (down && jumpHeight <= 0) {
           down = false;
         }
         tempmillis = millis();
@@ -57,14 +61,14 @@ public class Jiji {
     if (xcor < 500) {
       xcor = xcor + 25;
     } else if (xcor < 900) {
-      g1.scrollright();
+      tg1.scrollright();
     }
   }
   void moveLeft() {
     if (xcor > 0) {
       xcor = xcor - 25;
     } else {
-      g1.scrollleft();
+      tg1.scrollleft();
     }
   }
 }
