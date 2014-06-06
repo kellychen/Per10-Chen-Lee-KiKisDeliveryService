@@ -12,6 +12,7 @@ public class G2 {
   boolean win;
   boolean wave1, wave2, wave3, wave4, wave5;
   boolean flashing;
+  int check;
 
   void setup() {
     size(1000, 600);
@@ -41,11 +42,15 @@ public class G2 {
     wave4();
     wave5();
     flash();
+    if (check % 3 == 0){
     checkHit(c);
     checkHit(c2);
     checkHit(c3);
     checkHit(c4);
     checkHit(c5);
+    }
+    check++;
+    System.out.println(k.getHealth());
   }
 
   void checkHit(Crow c) {
@@ -57,12 +62,15 @@ public class G2 {
           k.decHealth();
         }
         flashing  = true;
+        check = 1;
       }
     }
   }
 
 void flash(){
+  if(check % 24 == 0){
   flashing = false;
+  }
 }
 
   void wave1() {
