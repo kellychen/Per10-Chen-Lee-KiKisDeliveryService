@@ -48,8 +48,8 @@ void setup() {
 
 void draw() {
   background(0);
-  //playG1();
-  playG2();
+  playG1();
+  //playG2();
   /*
   if (startWelcome) {
     welcome();

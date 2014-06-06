@@ -2,10 +2,16 @@ public class Jiji {
   int health;
   int xcor;
   int ycor;
+  int yvel;
   int jumpHeight;
+  int time;
   boolean up;
   boolean down;
   PImage jiji;
+  
+  /*
+  yvel = yvel + 9.8*time
+  */
 
   void setup() {
     jiji = loadImage("jiji.png");
