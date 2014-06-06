@@ -62,7 +62,7 @@ public class Kiki {
     health--;
   }
   public void stop() {
-    //noLoop();
+    noLoop();
   }
 }
 

@@ -68,7 +68,7 @@ void flash(){
   void wave1() {
     if (wave1) {
       c.draw();
-      if(wavecount >= 600){
+      if(wavecount >= 800){
         wave2 = true;
       }
     }
@@ -76,16 +76,25 @@ void flash(){
   void wave2() {
     if (wave2) {
       c2.draw();
+      if(wavecount >= 1400){
+        wave3 = true;
+      }
     }
   }
   void wave3() {
     if (wave3) {
       c3.draw();
+      if(wavecount >= 2100){
+        wave4 = true;
+      }
     }
   }
   void wave4() {
     if (wave4) {
       c4.draw();
+      if(wavecount >= 2800){
+        wave5 = true;
+      }
     }
   }
   void wave5() {
