@@ -1,12 +1,14 @@
-public class G3{
- PImage bg;
+public class G3 {
+  PImage bg;
+  Thrower t;
 
-void setup(){
-  
+  void setup() {
+    t = new Thrower("throwertest.jpg");
+    t.setup();
+  }
+
+  void draw() {
+    t.draw();
+  }
 }
 
-void draw(){
-  
-}
- 
-}
