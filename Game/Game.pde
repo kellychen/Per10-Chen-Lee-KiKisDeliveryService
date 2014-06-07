@@ -29,7 +29,7 @@ ToG2 tg2;
 G1 g1;
 G2 g2;
 
-Platform botPlat;
+Platform botPlat,midPlat,topPlat;
 Stack<Platform> platforms;
 
 void setup() {
