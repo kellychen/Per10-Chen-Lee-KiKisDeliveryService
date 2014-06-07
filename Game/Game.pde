@@ -12,6 +12,7 @@ String [] introtxt = {
 int intronum = 0;
 boolean drawintro;
 boolean togame1 = false;
+boolean togame2 = false;
 boolean game1 = false;
 boolean game2 = false;
 boolean game3 = false;
@@ -24,6 +25,7 @@ boolean startFade;
 boolean startWelcome;
 boolean toMilk;
 ToG1 tg1;
+ToG2 tg2;
 G1 g1;
 G2 g2;
 
@@ -42,30 +44,37 @@ void setup() {
   tg1.setup();
   g1 = new G1();
   g1.setup();
+  tg2 = new ToG2();
+  tg2.setup();
   g2 = new G2();
   g2.setup();
 }
 
 void draw() {
   background(0);
-  playG1();
+  //playG1();
   //playG2();
-  /*
-  if (startWelcome) {
-    welcome();
-  }
-  if (drawintro) {
-    intro();
-  } else if (togame1) {
-    playpreG1();
-  } else if (game1) {
-    playG1();
-  } else if (game2) {
+  playpreG2();
+  if (game2)
     playG2();
-  } else if (game3) {
-    playG3();
-  }
-  */
+
+  /*  if (startWelcome) {
+   welcome();
+   }
+   if (drawintro) {
+   intro();
+   } else if (togame1) {
+   playpreG1();
+   } else if (game1) {
+   playG1();
+   } else if(togame2){
+   playpreG2();
+   }else if (game2) {
+   playG2();
+   } else if (game3) {
+   playG3();
+   }
+   */
 }
 
 void welcome() {
@@ -140,6 +149,9 @@ void playpreG1() {
   tg1.draw();
 }
 
+void playpreG2() {
+  tg2.draw();
+}
 void playG1() {
   g1.draw();
   //code for Jiji's jumping quest
@@ -191,4 +203,4 @@ void add() {
  }
  //we could probably use WASD for flying and arrow keys for jumping or something if we ever need to do them at the same time
  }
- */
+ */ 

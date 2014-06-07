@@ -3,13 +3,6 @@ public class ToG1 {
   int bgxcor;
   Jiji j;
 
-  //G1(){
-  //  go = false;
-  //}
-
-  //void g1() {
-  //}
-
   void setup() {
     j = new Jiji();
     j.setup();
