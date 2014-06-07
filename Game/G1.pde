@@ -5,7 +5,7 @@ public class G1 {
   int plat;
   PImage bg;
   Jiji j;
-  Stack<Platform> platforms;
+
 
   void setup() {
     bg = loadImage("wall.jpg");
@@ -14,9 +14,12 @@ public class G1 {
     j.setycor(360);
     platforms = new Stack();
     for (int i = 0; i < 10; i++){
-      Platform p = new Platform(i + 1, 100, 300);
+      Random r = new Random();
+      int temp = r.nextInt(450);
+      Platform p = new Platform(i + 1, temp, 250);
       platforms.push(p);
     }
+    botPlat = platforms.pop();
   }
 
   void draw() {
@@ -24,11 +27,17 @@ public class G1 {
     image(bg, 0, bgycor % 600);
     image(bg, 0, (bgycor % 600) - 600);
     j.draw();
+    botPlat.draw();
+    platforms.peek().setYcor(botPlat.getYcor() - 140);
     platforms.peek().draw();
   }
   
   void scrollup(){
     bgycor = bgycor + 25;
+  }
+  
+  void scrolldown(int pix){
+    bgycor = bgycor - pix;
   }
 }
 

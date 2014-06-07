@@ -29,6 +29,9 @@ ToG2 tg2;
 G1 g1;
 G2 g2;
 
+Platform botPlat;
+Stack<Platform> platforms;
+
 void setup() {
   size(1000, 600);
   f = createFont("Cambria", 20, true);
@@ -52,9 +55,9 @@ void setup() {
 
 void draw() {
   background(0);
-  //playG1();
+  playG1();
   //playG2();
-  endscreen();
+  //endscreen();
   /*  if (startWelcome) {
    welcome();
    }

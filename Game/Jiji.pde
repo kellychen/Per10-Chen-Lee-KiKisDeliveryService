@@ -8,10 +8,10 @@ public class Jiji {
   boolean up;
   boolean down;
   PImage jiji;
-  
+
   /*
   yvel = yvel + 9.8*time
-  */
+   */
 
   void setup() {
     jiji = loadImage("jiji.png");
@@ -43,18 +43,23 @@ public class Jiji {
   void jump() {
     if (millis() - tempmillis > 25) {
       if (ycor <= 350) {
-        g1.scrollup();
       }
       if (ycor < 600 && ycor > 0) {
         if (up && jumpHeight < 150) {
           ycor = ycor - 25;
           jumpHeight = jumpHeight + 25;
+          botPlat.setYcor(botPlat.getYcor() + 25);
+          //platforms.peek().setYcor(platforms.peek().getYcor() + 25);
+          g1.scrollup();
         } else if (up && jumpHeight >= 150) {
           up = false;
           down = true;
         } else if (down && jumpHeight > 0) {
           ycor = ycor + 25;
           jumpHeight = jumpHeight - 25;
+          botPlat.setYcor(botPlat.getYcor() - 25);
+          //platforms.peek().setYcor(platforms.peek().getYcor() - 25);
+          g1.scrolldown(25);
         } else if (down && jumpHeight <= 0) {
           down = false;
         }
