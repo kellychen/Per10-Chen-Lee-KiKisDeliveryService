@@ -20,7 +20,7 @@ public class ToG2 {
     k.draw();
     textFont(f, 26);        
     textAlign(CENTER);
-    text("Use WASD keys to fly around and avoid the evil crows. Fly to the cage to begin!", 500, 500);
+    text("Use WASD keys to fly and avoid the crows. You have 3 lives so use them wisely! \n Fly to the cage to begin!", 500, 500);
   }
 
   void check() {

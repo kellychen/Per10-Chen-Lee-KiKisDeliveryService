@@ -54,10 +54,7 @@ void draw() {
   background(0);
   //playG1();
   //playG2();
-  playpreG2();
-  if (game2)
-    playG2();
-
+  endscreen();
   /*  if (startWelcome) {
    welcome();
    }
@@ -136,6 +133,13 @@ void intro() {
   //draw beginning story thing
 }
 
+void endscreen() {
+  bg = loadImage("end1.jpg");
+  image(bg, 0, 0);
+  textFont(f, 22);
+  textAlign(CENTER);
+  text("Thank you for playing!", 550, 500);
+}
 /*
 void toMilk() {
  bg = loadImage("JijiToMilk.jpg");
@@ -203,4 +207,4 @@ void add() {
  }
  //we could probably use WASD for flying and arrow keys for jumping or something if we ever need to do them at the same time
  }
- */ 
+ */

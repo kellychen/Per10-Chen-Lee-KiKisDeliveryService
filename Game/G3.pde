@@ -1,9 +1,12 @@
-boolean go3;
+public class G3{
+ PImage bg;
 
-//G3(){
-//  go = false;
-//}
-
-void g3(){
+void setup(){
   
+}
+
+void draw(){
+  
+}
+ 
 }
