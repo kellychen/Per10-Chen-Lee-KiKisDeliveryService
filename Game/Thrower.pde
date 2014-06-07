@@ -1,12 +1,13 @@
 public class Thrower {
   int range;
-  int xcor, ycor, destxcor, destycor;
   int timer;
+  int xcor, ycor, destxcor, destycor;
   PImage person;
   boolean reached;
+  boolean infected;
 
-  public Thrower(PImage p) {
-    person = p;
+  public Thrower(String s) {
+    person = loadImage(s);
   }
 
   void setup() {
@@ -23,12 +24,13 @@ public class Thrower {
   }
 
   void move() {
-    if(xcor == destxcor && ycor = destycor){
-     reached = true; 
+    if (xcor == destxcor && ycor == destycor) {
+      reached = true;
     }
     if (reached) {
       destxcor = (int)(1000*Math.random());
       destycor = (int)(600*Math.random());
+      reached = false;
     } else {
       if (Math.abs(xcor - destxcor) != 0) {
         if (xcor < destxcor) {
@@ -45,6 +47,28 @@ public class Thrower {
         }
       }
     }
+  }
+
+  int getxcor() {
+    return xcor;
+  }
+  int getycor() {
+    return ycor;
+  }
+  void setInfected(boolean b){
+   infected = b; 
+  }
+  double distance(Thrower t) {
+    return Math.sqrt((this.xcor - t.getxcor())^2 + (this.ycor - t.getycor())^2);
+  }
+  void Infect(Thrower t){
+    //you have to be infected in order to infect others
+    if(infected){
+      if(this.distance(t) <= range){
+       t.setInfected(true); 
+      }
+    }
+    
   }
 }
 

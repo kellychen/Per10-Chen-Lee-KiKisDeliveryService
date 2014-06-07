@@ -28,6 +28,7 @@ ToG1 tg1;
 ToG2 tg2;
 G1 g1;
 G2 g2;
+G3 g3;
 
 Platform botPlat,midPlat,topPlat;
 Stack<Platform> platforms;
@@ -51,12 +52,15 @@ void setup() {
   tg2.setup();
   g2 = new G2();
   g2.setup();
+  g3 = new G3();
+  g3.setup();
 }
 
 void draw() {
   background(0);
-  playG1();
+  //playG1();
   //playG2();
+  playG3();
   //endscreen();
   /*  if (startWelcome) {
    welcome();
@@ -161,16 +165,14 @@ void playpreG2() {
 }
 void playG1() {
   g1.draw();
-  //code for Jiji's jumping quest
 }
 
 void playG2() {
   g2.draw();
-  // code for Kiki's flying game
 }
 
 void playG3() {
-  //code for Tombo's game
+  g3.draw();
 }
 
 
