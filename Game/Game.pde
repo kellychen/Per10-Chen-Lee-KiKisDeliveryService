@@ -1,3 +1,4 @@
+
 PFont f;
 PImage bg;
 PImage welcome;
@@ -30,7 +31,7 @@ G1 g1;
 G2 g2;
 G3 g3;
 
-Platform botPlat,midPlat,topPlat;
+Platform botPlat,midPlat,topPlat,fPlat,basePlat;
 Stack<Platform> platforms;
 
 void setup() {
@@ -58,9 +59,9 @@ void setup() {
 
 void draw() {
   background(0);
-  //playG1();
+  playG1();
   //playG2();
-  playG3();
+  //playG3();
   //endscreen();
   /*  if (startWelcome) {
    welcome();

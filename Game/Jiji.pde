@@ -45,21 +45,39 @@ public class Jiji {
       if (ycor <= 350) {
       }
       if (ycor < 600 && ycor > 0) {
-        if (up && jumpHeight < 150) {
-          ycor = ycor - 25;
-          jumpHeight = jumpHeight + 25;
-          botPlat.setYcor(botPlat.getYcor() + 25);
-          //platforms.peek().setYcor(platforms.peek().getYcor() + 25);
+        if (up && jumpHeight < 160) {
+          ycor = ycor - 20;
+          jumpHeight = jumpHeight + 20;
+          if (basePlat == null) {
+            botPlat.setYcor(botPlat.getYcor() + 20);
+          } else {
+            basePlat.setYcor(basePlat.getYcor() + 20);
+          }
           g1.scrollup();
-        } else if (up && jumpHeight >= 150) {
+        } else if (up && jumpHeight >= 160) {
           up = false;
           down = true;
         } else if (down && jumpHeight > 0) {
-          ycor = ycor + 25;
-          jumpHeight = jumpHeight - 25;
-          botPlat.setYcor(botPlat.getYcor() - 25);
-          //platforms.peek().setYcor(platforms.peek().getYcor() - 25);
-          g1.scrolldown(25);
+          ycor = ycor + 20;
+          if (xcor >= botPlat.getXcor() - 20 && xcor < botPlat.getXcor() + 160 && 
+            ycor > botPlat.getYcor() - 125 && ycor < botPlat.getYcor() - 85) {
+            down = false;
+            setycor(botPlat.getYcor() - 100);
+            basePlat = botPlat;
+            jumpHeight = 0;
+              botPlat = midPlat;
+              midPlat = topPlat;
+              topPlat = fPlat;
+            if (!platforms.empty()) {
+              fPlat = platforms.pop();
+            } else {
+              fPlat = null;
+            }
+          } else {
+            jumpHeight = jumpHeight - 20;
+            botPlat.setYcor(botPlat.getYcor() - 20);
+            g1.scrolldown(20);
+          }
         } else if (down && jumpHeight <= 0) {
           down = false;
         }
@@ -70,14 +88,14 @@ public class Jiji {
 
   void moveRight() {
     if (xcor < 500) {
-      xcor = xcor + 25;
+      xcor = xcor + 20;
     } else if (xcor < 900) {
       tg1.scrollright();
     }
   }
   void moveLeft() {
     if (xcor > 0) {
-      xcor = xcor - 25;
+      xcor = xcor - 20;
     } else {
       tg1.scrollleft();
     }
