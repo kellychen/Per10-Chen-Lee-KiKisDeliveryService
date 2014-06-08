@@ -59,10 +59,11 @@ void setup() {
 
 void draw() {
   background(0);
-  playG1();
+  //playG1();
   //playG2();
   //playG3();
   //endscreen();
+
   /*  if (startWelcome) {
    welcome();
    }
@@ -72,15 +73,15 @@ void draw() {
    playpreG1();
    } else if (game1) {
    playG1();
-   } else if(togame2){
+   } else if(togame2){ 
    playpreG2();
-   }else if (game2) {
+   }if (game2) {
    playG2();
    } else if (game3) {
    playG3();
    }
-   */
-}
+ }
+ */
 
 void welcome() {
   welcome = loadImage("welcome.jpg");
