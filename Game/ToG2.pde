@@ -21,7 +21,7 @@ public class ToG2 {
     noStroke();
     fill(rectfill);
     rect(55,480,885,25);
-    rect(285,520,420,25);
+    rect(280,520,450,25);
     fill(textfill);
     textFont(f, 26);        
     textAlign(CENTER);
