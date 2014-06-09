@@ -1,12 +1,6 @@
 public class Jiji {
-  int health;
-  int xcor;
-  int ycor;
-  int yvel;
-  int jumpHeight;
-  int time;
-  boolean up;
-  boolean down;
+  int health, xcor, ycor, yvel, jumpHeight, time;
+  boolean up, down, win, wasOnPlat, fall;
   PImage jiji;
 
   /*
@@ -24,6 +18,7 @@ public class Jiji {
   }
 
   void draw() {
+    System.out.println(wasOnPlat);
     image(jiji, xcor, ycor);
     jump();
     if (keyPressed) {
@@ -41,7 +36,20 @@ public class Jiji {
   }
 
   void jump() {
-    if (millis() - tempmillis > 25) {
+    if (win) {
+      stop();
+      if (game1) {
+        game1 = false;
+        togame2 = true;
+      }
+    }
+    if (fall) {
+      if (ycor > 600) {
+        stop();
+      } else {
+        ycor = ycor + 20;
+      }
+    } else if (millis() - tempmillis > 25) {
       if (ycor <= 350) {
       }
       if (ycor < 600 && ycor > 0) {
@@ -71,6 +79,9 @@ public class Jiji {
             int dif = (360 - ycor);
             setycor(ycor + dif);
             basePlat.setYcor(basePlat.getYcor() + dif);
+            if (basePlat.getNum() == 1) {
+              win = true;
+            }
             if (!platforms.empty()) {
               fPlat = platforms.pop();
             } else {
@@ -87,6 +98,9 @@ public class Jiji {
           }
         } else if (down && jumpHeight <= 0) {
           down = false;
+          if (basePlat != null && !(xcor >= basePlat.getXcor() - 50 && xcor < basePlat.getXcor() + 130)) {
+            fall = true;
+          }
         }
         tempmillis = millis();
       }
@@ -99,6 +113,9 @@ public class Jiji {
     } else if (xcor < 900) {
       tg1.scrollright();
     }
+    if (basePlat != null && !(xcor >= basePlat.getXcor() - 50 && xcor < basePlat.getXcor() + 130)) {
+      fall = true;
+    }
   }
   void moveLeft() {
     if (xcor > 0) {
@@ -106,6 +123,13 @@ public class Jiji {
     } else {
       tg1.scrollleft();
     }
+    if (basePlat != null && !(xcor >= basePlat.getXcor() - 50 && xcor < basePlat.getXcor() + 130)) {
+      fall = true;
+    }
+  }
+
+  void stop() {
+    noLoop();
   }
 }
 
