@@ -11,7 +11,7 @@ String [] introtxt = {
   "Osono: Jiji I need some milk. Could you go get some for me please?"
 };
 String[] endimgs = {
-"end1.jpg", "end2.jpg", "end3.jpg", "end4.jpg", "end5.jpg", "end6.jpg", "end7.jpg", "end8.jpg", "end9.jpg", "end10.jpg"
+  "end1.jpg", "end2.jpg", "end3.jpg", "end4.jpg", "end5.jpg", "end6.jpg", "end7.jpg", "end8.jpg", "end9.jpg", "end10.jpg"
 };
 
 int intronum = 0;
@@ -30,13 +30,14 @@ int tempmillis;
 boolean startFade;
 boolean startWelcome;
 boolean toMilk;
+boolean retry1;
 ToG1 tg1;
 ToG2 tg2;
 G1 g1;
 G2 g2;
 G3 g3;
 
-Platform botPlat,midPlat,topPlat,fPlat,basePlat;
+Platform botPlat, midPlat, topPlat, fPlat, basePlat;
 Stack<Platform> platforms;
 
 void setup() {
@@ -70,24 +71,29 @@ void draw() {
   //playG3();
   //endscreen();
 
-    if (startWelcome) {
-   welcome();
-   }
-   if (drawintro) {
-   intro();
-   } else if (togame1) {
-   playpreG1();
-   } else if (game1) {
-   playG1();
-   } else if(togame2){ 
-   playpreG2();
-   }if (game2) {
-   playG2();
-   } else if (game3) {
-   playG3();
-   }
-   
- }
+  if (startWelcome) {
+    welcome();
+  }
+  if (drawintro) {
+    intro();
+  } else if (togame1) {
+    playpreG1();
+  } else if (game1) {
+    if (retry1) {
+      g1 = new G1();
+      g1.setup();
+      retry1 = false;
+    }
+    playG1();
+  } else if (togame2) { 
+    playpreG2();
+  }
+  if (game2) {
+    playG2();
+  } else if (game3) {
+    playG3();
+  }
+}
 
 void welcome() {
   welcome = loadImage("welcome.jpg");
@@ -154,10 +160,10 @@ void endscreen() {
   textFont(f, 22);
   textAlign(CENTER);
   text("Thank you for playing!", 550, 500);
-  if(endnum == endimgs.length - 1){
+  if (endnum == endimgs.length - 1) {
     endnum = 0;
-  }else{
-   endnum++; 
+  } else {
+    endnum++;
   }
 }
 /*
@@ -212,17 +218,4 @@ void add() {
     //toMilk = true;
   }
 }
-/* Key Press stuff for jumping of flying put within draw() method
- if(keyPressed){
- if(key == 'w' ++ key = 'W'){
- //move up
- } else if(key == 'a' || key == 'A'){
- //move left
- } else if(key == 's' || key == 'S'){
- //move down
- } else if(key == 'd' || key == 'D'){
- //move right 
- }
- //we could probably use WASD for flying and arrow keys for jumping or something if we ever need to do them at the same time
- }
- */
+

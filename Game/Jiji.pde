@@ -18,7 +18,6 @@ public class Jiji {
   }
 
   void draw() {
-    System.out.println(wasOnPlat);
     image(jiji, xcor, ycor);
     jump();
     if (keyPressed) {
@@ -37,15 +36,14 @@ public class Jiji {
 
   void jump() {
     if (win) {
-      stop();
-      if (game1) {
+      //stop();
         game1 = false;
         togame2 = true;
-      }
     }
     if (fall) {
       if (ycor > 600) {
-        stop();
+        //stop();
+        g1.changeRetry();
       } else {
         ycor = ycor + 20;
       }
