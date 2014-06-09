@@ -18,6 +18,11 @@ public class ToG2 {
     image(go, 900, 20);
     check();
     k.draw();
+    noStroke();
+    fill(rectfill);
+    rect(55,480,885,25);
+    rect(285,520,420,25);
+    fill(textfill);
     textFont(f, 26);        
     textAlign(CENTER);
     text("Use WASD keys to fly and avoid the crows. You have 3 lives so use them wisely! \n Fly to the cage in the top right to begin!", 500, 500);

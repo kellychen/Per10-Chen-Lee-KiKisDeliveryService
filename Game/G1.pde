@@ -23,6 +23,7 @@ public class G1 {
       Platform p = new Platform(i + 1, temp, 240);
       platforms.push(p);
     }
+    basePlat = null;
     botPlat = platforms.pop();
     midPlat = platforms.pop();
     topPlat = platforms.pop();

@@ -31,7 +31,7 @@ int tempmillis;
 boolean startFade;
 boolean startWelcome;
 boolean toMilk;
-boolean retry1;
+boolean retry1, retry2;
 ToG1 tg1;
 ToG2 tg2;
 ToG3 tg3;
@@ -74,8 +74,8 @@ void draw() {
   //playG2();
   //playG3();
   //endscreen();
-  playpreG3();
-/*
+  //playpreG3();
+
   if (startWelcome) {
     welcome();
   }
@@ -92,13 +92,18 @@ void draw() {
     playG1();
   } else if (togame2) { 
     playpreG2();
-  }
-  if (game2) {
+  } else if (game2) {
+    if (retry2) {
+      g2 = new G2();
+      g2.setup();
+      retry2 = false;
+    }
     playG2();
+  } else if (togame3) {
+    playpreG3();
   } else if (game3) {
     playG3();
   }
-  */
 }
 
 void welcome() {
@@ -188,7 +193,7 @@ void playpreG1() {
 void playpreG2() {
   tg2.draw();
 }
-void playpreG3(){
+void playpreG3() {
   tg3.draw();
 }
 void playG1() {
