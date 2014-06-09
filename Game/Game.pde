@@ -19,6 +19,7 @@ int endnum = 0;
 boolean drawintro;
 boolean togame1 = false;
 boolean togame2 = false;
+boolean togame3 = false;
 boolean game1 = false;
 boolean game2 = false;
 boolean game3 = false;
@@ -33,6 +34,7 @@ boolean toMilk;
 boolean retry1;
 ToG1 tg1;
 ToG2 tg2;
+ToG3 tg3;
 G1 g1;
 G2 g2;
 G3 g3;
@@ -59,6 +61,8 @@ void setup() {
   tg2.setup();
   g2 = new G2();
   g2.setup();
+  tg3 = new ToG3();
+  tg3.setup();
   g3 = new G3();
   g3.setup();
 }
@@ -70,7 +74,8 @@ void draw() {
   //playG2();
   //playG3();
   //endscreen();
-
+  playpreG3();
+/*
   if (startWelcome) {
     welcome();
   }
@@ -93,6 +98,7 @@ void draw() {
   } else if (game3) {
     playG3();
   }
+  */
 }
 
 void welcome() {
@@ -181,6 +187,9 @@ void playpreG1() {
 
 void playpreG2() {
   tg2.draw();
+}
+void playpreG3(){
+  tg3.draw();
 }
 void playG1() {
   g1.draw();
