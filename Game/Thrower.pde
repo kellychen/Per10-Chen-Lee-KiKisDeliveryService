@@ -5,9 +5,13 @@ public class Thrower {
   PImage person;
   boolean reached;
   boolean infected;
+  boolean control;
+  boolean toMove;
+  Thrower[] throwarr;
 
-  public Thrower(String s) {
+  public Thrower(String s, Thrower[] t) {
     person = loadImage(s);
+    this.throwarr = t;
   }
 
   void setup() {
@@ -20,55 +24,72 @@ public class Thrower {
 
   void draw() {
     image(person, xcor, ycor);
-    move();
-  }
-
-  void move() {
-    if (xcor == destxcor && ycor == destycor) {
-      reached = true;
-    }
-    if (reached) {
-      destxcor = (int)(1000*Math.random());
-      destycor = (int)(600*Math.random());
-      reached = false;
-    } else {
-      if (Math.abs(xcor - destxcor) != 0) {
-        if (xcor < destxcor) {
-          xcor++;
-        } else {
-          xcor--;
-        }
+    //Just for KiKi
+    if (control) {
+      if(toMove){
+        move();
       }
-      if (Math.abs(ycor - destycor) != 0) {
-        if (ycor < destycor) {
-          ycor++;
-        } else {
-          ycor-- ;
+      if (keyPressed) {
+        if (key == 'i' || key == 'I') {
+          toMove = false;
         }
       }
     }
   }
 
-  int getxcor() {
-    return xcor;
-  }
-  int getycor() {
-    return ycor;
-  }
-  void setInfected(boolean b){
-   infected = b; 
-  }
-  double distance(Thrower t) {
-    return Math.sqrt((this.xcor - t.getxcor())^2 + (this.ycor - t.getycor())^2);
-  }
-  void Infect(Thrower t){
-    //you have to be infected in order to infect others
-    if(infected){
-      if(this.distance(t) <= range){
-       t.setInfected(true); 
+      void move() {
+        if (xcor == destxcor && ycor == destycor) {
+          reached = true;
+        }
+        if (reached) {
+          destxcor = (int)(1000*Math.random());
+          destycor = (int)(600*Math.random());
+          reached = false;
+        } else {
+          if (Math.abs(xcor - destxcor) != 0) {
+            if (xcor < destxcor) {
+              xcor++;
+            } else {
+              xcor--;
+            }
+          }
+          if (Math.abs(ycor - destycor) != 0) {
+            if (ycor < destycor) {
+              ycor++;
+            } else {
+              ycor-- ;
+            }
+          }
+        }
+      }
+
+      int getxcor() {
+        return xcor;
+      }
+      int getycor() {
+        return ycor;
+      }
+      void setInfected(boolean b) {
+        infected = b;
+      }
+      double distance(Thrower t) {
+        return Math.sqrt((this.xcor - t.getxcor())^2 + (this.ycor - t.getycor())^2);
+      }
+      void Infect(Thrower t) {
+        //you have to be infected in order to infect others
+        if (infected) {
+          if (this.distance(t) <= range) {
+            t.setInfected(true);
+          }
+        }
+      }
+      void throwflour() {
+        for (int i = 0; i < throwarr.length; i++) {
+          Infect(throwarr[0]);
+        }
+      }
+      void changeControl() {
+        control = true;
       }
     }
-    
-  }
-}
 
