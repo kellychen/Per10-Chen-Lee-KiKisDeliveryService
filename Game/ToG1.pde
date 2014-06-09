@@ -17,9 +17,11 @@ public class ToG1 {
     noStroke();
     fill(rectfill);
     rect(50, 50, 615, 25);
+    rect(50, 90, 615, 25);
+    rect(120, 130, 480, 25);
     fill(textfill);
     stroke(0);
-    text("Press 'w' to jump, 'a' to move left, and 'd' to move right", 55, 70);
+    text("Press 'w' to jump, 'a' to move left, and 'd' to move right \nNote: in order to move left or right while jumping, both \n            up and either left or right must be pressed", 55, 70);
     check();
     j.draw();
   }
