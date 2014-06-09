@@ -3,6 +3,8 @@ public class ToG2 {
   PImage bg, go;
   int bgxcor;
   Kiki k;
+  boolean one;
+  
 
   void setup() {
     k = new Kiki();
@@ -10,9 +12,28 @@ public class ToG2 {
     bg = loadImage("toG2.jpg");
     go = loadImage("cagejiji.png");
     f = createFont("Cambria", 20, true);
+    one = true;
   }
 
   void draw() {
+    if (one){
+      draw1();
+    }
+    else{
+      draw2();
+    }
+  }
+  
+  void draw1(){
+    image(loadImage("osono.jpg"),0,0);
+    noStroke();
+    fill(rectfill);
+    rect(60,480,630,25);
+    fill(textfill);
+    text("Fabulous! Now Kiki, can you deliver this for me please?",70,500);
+  }
+  
+  void draw2(){
     image(bg, bgxcor % 1000, 0);
     image(bg, 1000+(bgxcor % 1000), 0);
     image(go, 900, 20);
@@ -33,6 +54,10 @@ public class ToG2 {
       game2 = true;
       togame2 = false;
     }
+  }
+  
+  void setFalse(){
+    one = false;
   }
 }
 
