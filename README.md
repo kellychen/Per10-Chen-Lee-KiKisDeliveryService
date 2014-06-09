@@ -1,4 +1,1 @@
-Per10-Chen-Lee-ProjectAwesome
-=============================
-
-This is our awesomesauce project
+Our game is based on the 1989 film, KiKi's Delivery Service by Hayao Miyazaki. Our two games involve the two major characters, KiKi the witch and her pet cat Jiji while they try to accomplish certain tasks. Make sure you play until the end for a surprise!
