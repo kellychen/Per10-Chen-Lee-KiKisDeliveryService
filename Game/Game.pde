@@ -10,7 +10,12 @@ String [] introtxt = {
   "Upon settling in her new town, Kiki meets a nice baker named \nOsono who agrees to let Kiki stay with her on the condition that \nshe helps around the bakery and allows her to make her own \nmoney by making deliveries.", 
   "Osono: Jiji I need some milk. Could you go get some for me please?"
 };
+String[] endimgs = {
+"end1.jpg", "end2.jpg", "end3.jpg", "end4.jpg", "end5.jpg", "end6.jpg", "end7.jpg", "end8.jpg", "end9.jpg", "end10.jpg"
+};
+
 int intronum = 0;
+int endnum = 0;
 boolean drawintro;
 boolean togame1 = false;
 boolean togame2 = false;
@@ -58,8 +63,9 @@ void setup() {
 }
 
 void draw() {
-  background(0);
-  playG1();
+  endscreen();
+  //background(0);
+  //playG1();
   //playG2();
   //playG3();
   //endscreen();
@@ -143,11 +149,16 @@ void intro() {
 }
 
 void endscreen() {
-  bg = loadImage("end1.jpg");
+  bg = loadImage(endimgs[endnum]);
   image(bg, 0, 0);
   textFont(f, 22);
   textAlign(CENTER);
   text("Thank you for playing!", 550, 500);
+  if(endnum == endimgs.length - 1){
+    endnum = 0;
+  }else{
+   endnum++; 
+  }
 }
 /*
 void toMilk() {
