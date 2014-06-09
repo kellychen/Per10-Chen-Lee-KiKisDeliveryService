@@ -59,7 +59,7 @@ void setup() {
 
 void draw() {
   background(0);
-  //playG1();
+  playG1();
   //playG2();
   //playG3();
   //endscreen();
@@ -80,8 +80,8 @@ void draw() {
    } else if (game3) {
    playG3();
    }
+   */
  }
- */
 
 void welcome() {
   welcome = loadImage("welcome.jpg");

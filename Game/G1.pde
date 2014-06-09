@@ -32,18 +32,26 @@ public class G1 {
     if (basePlat != null) {
       basePlat.draw();
       text("base " + basePlat.getNum(), 0, basePlat.getYcor());
-      botPlat.setYcor(basePlat.getYcor() - 160);
     }
-    botPlat.draw();
-    text("bot " + botPlat.getNum(), 0, botPlat.getYcor());
-    midPlat.setYcor(botPlat.getYcor() - 160);
-    midPlat.draw();
-    text("mid " + midPlat.getNum(), 0, midPlat.getYcor());
-    topPlat.setYcor(midPlat.getYcor() - 160);
-    topPlat.draw();
-    text("top " + topPlat.getNum(), 0, topPlat.getYcor());
-    fPlat.setYcor(topPlat.getYcor() - 160);
+    if (botPlat != null) {
+      if (botPlat.getNum() != 20) {
+        botPlat.setYcor(basePlat.getYcor() - 160);
+      }
+      botPlat.draw();
+      text("bot " + botPlat.getNum(), 0, botPlat.getYcor());
+    }
+    if (midPlat != null) {
+      midPlat.setYcor(botPlat.getYcor() - 160);
+      midPlat.draw();
+      text("mid " + midPlat.getNum(), 0, midPlat.getYcor());
+    }
+    if (topPlat != null) {
+      topPlat.setYcor(midPlat.getYcor() - 160);
+      topPlat.draw();
+      text("top " + topPlat.getNum(), 0, topPlat.getYcor());
+    }
     if (fPlat != null) {
+      fPlat.setYcor(topPlat.getYcor() - 160);
       fPlat.draw();
     }
 

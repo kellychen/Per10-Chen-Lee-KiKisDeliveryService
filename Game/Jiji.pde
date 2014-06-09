@@ -59,15 +59,18 @@ public class Jiji {
           down = true;
         } else if (down && jumpHeight > 0) {
           ycor = ycor + 20;
-          if (xcor >= botPlat.getXcor() - 20 && xcor < botPlat.getXcor() + 160 && 
+          if (xcor >= botPlat.getXcor() - 50 && xcor < botPlat.getXcor() + 130 && 
             ycor > botPlat.getYcor() - 125 && ycor < botPlat.getYcor() - 85) {
             down = false;
             setycor(botPlat.getYcor() - 100);
             basePlat = botPlat;
             jumpHeight = 0;
-              botPlat = midPlat;
-              midPlat = topPlat;
-              topPlat = fPlat;
+            botPlat = midPlat;
+            midPlat = topPlat;
+            topPlat = fPlat;
+            int dif = (360 - ycor);
+            setycor(ycor + dif);
+            basePlat.setYcor(basePlat.getYcor() + dif);
             if (!platforms.empty()) {
               fPlat = platforms.pop();
             } else {
@@ -75,7 +78,11 @@ public class Jiji {
             }
           } else {
             jumpHeight = jumpHeight - 20;
-            botPlat.setYcor(botPlat.getYcor() - 20);
+            if (basePlat!= null) {
+              basePlat.setYcor(basePlat.getYcor() - 20);
+            } else {
+              botPlat.setYcor(botPlat.getYcor() - 20);
+            }
             g1.scrolldown(20);
           }
         } else if (down && jumpHeight <= 0) {
