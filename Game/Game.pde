@@ -72,10 +72,10 @@ void draw() {
   //background(0);
   //playG1();
   //playG2();
-  playG3();
+  //playG3();
   //endscreen();
   //playpreG3();
-/*
+
   if (startWelcome) {
     welcome();
   }
@@ -104,7 +104,6 @@ void draw() {
   } else if (game3) {
     playG3();
   }
-  */
 }
 
 void welcome() {
@@ -217,6 +216,8 @@ void mousePressed() {
     drawintro = true;
   } else if (drawintro) {
     startFade = true;
+  } else if (togame2) {
+    tg2.setFalse();
   }
 }
 
