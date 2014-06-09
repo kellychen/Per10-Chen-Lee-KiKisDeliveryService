@@ -23,6 +23,7 @@ boolean togame3 = false;
 boolean game1 = false;
 boolean game2 = false;
 boolean game3 = false;
+boolean end = false;
 
 int rectfill;
 int textfill;
@@ -69,12 +70,6 @@ void setup() {
 
 void draw() {
   //endscreen();
-  //background(0);
-  //playG1();
-  //playG2();
-  //playG3();
-  //endscreen();
-  //playpreG3();
 
   if (startWelcome) {
     welcome();
@@ -103,6 +98,8 @@ void draw() {
     playpreG3();
   } else if (game3) {
     playG3();
+  } else if (end) {
+    endscreen();
   }
 }
 
@@ -218,6 +215,9 @@ void mousePressed() {
     startFade = true;
   } else if (togame2) {
     tg2.setFalse();
+  } else if (togame3) {
+    togame3 = false;
+    game3 = true;
   }
 }
 

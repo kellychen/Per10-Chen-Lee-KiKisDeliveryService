@@ -1,4 +1,5 @@
 public class G3 {
+  int time = 0;
   PImage bg;
   Thrower t, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16;
   Thrower[] throwarr = {
@@ -43,23 +44,32 @@ public class G3 {
   }
 
   void draw() {
-    image(bg,0,0);
-    t.draw();
-    t2.draw();
-    t3.draw();
-    t4.draw();
-    t5.draw();
-    t6.draw();
-    t7.draw();
-    t8.draw();
-    t9.draw();
-    t10.draw();
-    t11.draw();
-    t12.draw();
-    t13.draw();
-    t14.draw();
-    t15.draw();
-    t16.draw();
+    time++;
+    if (time <= 500) {
+      image(bg, 0, 0);
+      textAlign(CENTER);
+      fill(255);
+      text("CONGRATULATIONS!", 300, 450);
+      t.draw();
+      t2.draw();
+      t3.draw();
+      t4.draw();
+      t5.draw();
+      t6.draw();
+      t7.draw();
+      t8.draw();
+      t9.draw();
+      t10.draw();
+      t11.draw();
+      t12.draw();
+      t13.draw();
+      t14.draw();
+      t15.draw();
+      t16.draw();
+    } else {
+      game3 = false;
+      end = true;
+    }
   }
 }
 

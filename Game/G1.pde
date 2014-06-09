@@ -61,14 +61,14 @@ public class G1 {
       fill(0);
       rect(600, 0, 400, 600);
       fill(255);
-      text("Reach the top!\nBe careful of falling!\nToo hard? Press 'h' to enable easy mode.", 700, 275);
+      text("Reach the top!\nBe careful of falling!\nToo hard? Press 'h' to enable \n easy mode.", 625, 275);
       text("Easy Mode: " + easyMode, 700, 475);
       if (basePlat != null) {
         basePlat.draw();
         if (basePlat.getNum() == 1) {
           image(milk, basePlat.getXcor() + 30, basePlat.getYcor() - 70);
         }
-        text("base " + basePlat.getNum(), 0, basePlat.getYcor());
+   //     text("base " + basePlat.getNum(), 0, basePlat.getYcor());
       }
       if (botPlat != null) {
         if (botPlat.getNum() != 20) {
@@ -78,7 +78,7 @@ public class G1 {
         if (botPlat.getNum() == 1) {
           image(milk, botPlat.getXcor() + 30, botPlat.getYcor() - 70);
         }
-        text("bot " + botPlat.getNum(), 0, botPlat.getYcor());
+    //    text("bot " + botPlat.getNum(), 0, botPlat.getYcor());
       }
       if (midPlat != null) {
         midPlat.setYcor(botPlat.getYcor() - 160);
@@ -86,7 +86,7 @@ public class G1 {
         if (midPlat.getNum() == 1) {
           image(milk, midPlat.getXcor() + 30, midPlat.getYcor() - 70);
         }
-        text("mid " + midPlat.getNum(), 0, midPlat.getYcor());
+      //  text("mid " + midPlat.getNum(), 0, midPlat.getYcor());
       }
       if (topPlat != null) {
         topPlat.setYcor(midPlat.getYcor() - 160);
@@ -94,7 +94,7 @@ public class G1 {
         if (topPlat.getNum() == 1) {
           image(milk, topPlat.getXcor() + 30, topPlat.getYcor() - 70);
         }
-        text("top " + topPlat.getNum(), 0, topPlat.getYcor());
+       // text("top " + topPlat.getNum(), 0, topPlat.getYcor());
       }
       if (fPlat != null) {
         fPlat.setYcor(topPlat.getYcor() - 160);
