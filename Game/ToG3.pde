@@ -10,7 +10,7 @@ public class ToG3 {
   void draw() {
     textFont(f, 26);        
     textAlign(LEFT);
-    text("Whew that was a close call, \n but you escaped the crows! \n Congratulations on your delivery and enjoy this bonus game!", 200, 100);
+    text("Whew that was a close call, \n but you escaped the crows! \n Congratulations on your delivery and enjoy this bonus animation!", 200, 100);
   }
 
 }
