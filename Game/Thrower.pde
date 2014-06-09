@@ -38,7 +38,8 @@ public class Thrower {
       }
     } else {
       if (infected) {
-        tint(500);
+        System.out.println("INFECTED");
+        //tint(500);
         toMove = false;
       } else if (!infected) {
         move();

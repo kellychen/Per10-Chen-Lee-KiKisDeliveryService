@@ -8,6 +8,7 @@ public class ToG3 {
   }
 
   void draw() {
+    image(bg, 0 ,0);
     textFont(f, 26);        
     textAlign(LEFT);
     text("Whew that was a close call, \n but you escaped the crows! \n Congratulations on your delivery and enjoy this bonus animation!", 200, 100);
