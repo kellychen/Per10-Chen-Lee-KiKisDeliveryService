@@ -34,6 +34,13 @@ public class Thrower {
           toMove = false;
         }
       }
+    }else{
+     if(infected){
+      tint(100);
+      toMove = false;
+     } else if(!infected){
+      move(); 
+     }
     }
   }
 

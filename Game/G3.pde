@@ -43,6 +43,7 @@ public class G3 {
   }
 
   void draw() {
+    image(bg,0,0);
     t.draw();
     t2.draw();
     t3.draw();
