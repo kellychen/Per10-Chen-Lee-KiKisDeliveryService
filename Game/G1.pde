@@ -32,6 +32,8 @@ public class G1 {
     image(bg, 0, (bgycor % 600) - 600);
     fill(0);
     rect(600,0,400,600);
+    fill(255);
+    text("Reach the top!\nBe careful of falling!",700,275);
     if (basePlat != null) {
       basePlat.draw();
       text("base " + basePlat.getNum(), 0, basePlat.getYcor());

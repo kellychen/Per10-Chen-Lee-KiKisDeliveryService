@@ -63,14 +63,14 @@ void setup() {
 }
 
 void draw() {
-  endscreen();
+  //endscreen();
   //background(0);
   //playG1();
   //playG2();
   //playG3();
   //endscreen();
 
-  /*  if (startWelcome) {
+    if (startWelcome) {
    welcome();
    }
    if (drawintro) {
@@ -86,7 +86,7 @@ void draw() {
    } else if (game3) {
    playG3();
    }
-   */
+   
  }
 
 void welcome() {
